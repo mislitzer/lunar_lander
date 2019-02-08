@@ -29,7 +29,7 @@ class Level():
         self.__space = value
 
     def add_to_level_space(self, value):
-        self.__space.add(value)
+        self.__space.add(self.body, value)
 
     @property
     def handicap(self):
