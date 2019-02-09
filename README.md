@@ -1,4 +1,4 @@
-# Project Title
+# Lunar Lander
 
 Lunar Lander by Tobi Heiss & Martin Islitzer
 Written in Python
