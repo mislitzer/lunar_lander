@@ -2,3 +2,5 @@
 __init__.py
 __main.py
 test.py
+*/__pycache__
+*.py[co]

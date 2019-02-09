@@ -7,13 +7,13 @@ from config import Constants as CONSTANTS
 
 # import custom classes
 from classes import Level as level
-from classes import Lunar as lunar
+from classes import Lunar as hallo
 
 class LunarLander(arcade.Window):
     def __init__(self, width = CONSTANTS.GAME_WIDTH, height = CONSTANTS.GAME_HEIGHT):
         self.__gameboard = self.set_gameboard(super(), width, height)
         self.__level = level.Level(self.gameboard)
-        self.__lunar = lunar.Lunar(width / 2, height - height * 0.1)
+        self.__lunar = hallo.Lunar(width / 2, height - height * 0.1)
         self.__player = None
 
     def set_gameboard(self, parent, width, height):
