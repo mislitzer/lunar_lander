@@ -4,7 +4,7 @@ from classes import Line as line
 from config import Constants as CONSTANTS
 
 class Level():
-    def __init__(self, body, handicap = 0, gravity = (0.0, -900.0)):
+    def __init__(self, body, handicap = 1, gravity = (0.0, -900.0)):
         self.__body = body
         self.__space = pymunk.Space()
         self.__space.gravity = gravity
