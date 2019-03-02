@@ -103,7 +103,14 @@ class LunarLander(arcade.Window):
             color = arcade.color.WHITE
             
             if line.is_docker:
+                font_size = 14
                 color = arcade.color.LIGHT_GREEN
+                pos_y = start.y - font_size * 1.5
+
+                if (pos_y < 1):
+                    arcade.draw_text("x" + str(line.score), start.x - ((start.x - end.x) / 2.6), start.y + font_size * 1.5, arcade.color.WHITE, font_size)
+                else:
+                    arcade.draw_text("x" + str(line.score), start.x - ((start.x - end.x) / 2.6), pos_y, arcade.color.WHITE, font_size)
 
             # draw the lines and save it to the stack
             arcade.draw_line(start.x, start.y, end.x, end.y, color, thickness)

@@ -55,6 +55,18 @@ class Level():
     def docking_lines(self):
         return self.__docking_lines
 
+    def find_random_pos_line(self, points_amount):
+        random_pos = random.randint(2, points_amount - 2)
+        random_pos_up = random_pos + 1
+        random_pos_down = random_pos - 1
+
+        if (random_pos in self.docking_lines or random_pos_up in self.docking_lines or random_pos_down in self.docking_lines):
+            self.find_random_pos_line(points_amount)
+        elif (random_pos == None):
+            self.find_random_pos_line(points_amount)
+        else:
+            return random_pos
+
     def generate_level(self):
         height_area = CONSTANTS.GAME_HEIGHT / 2
         points_amount = int(CONSTANTS.GAME_WIDTH / CONSTANTS.GAME_LINE_POINT_DISTRIBUTION) + 1
@@ -62,8 +74,9 @@ class Level():
 
         # define the docking places
         for da in range(docking_amount):
-            random_pos = random.randint(1, points_amount - 1)
-            self.docking_lines.append(random_pos)
+            random_pos = self.find_random_pos_line(points_amount)
+            if (random_pos):
+                self.docking_lines.append(random_pos)
 
         # sort the places
         self.docking_lines.sort()
@@ -97,6 +110,10 @@ class Level():
                     score = 4
                 else:
                     score = 2
+
+                # multiply score twice
+                if (len(self.docking_lines) < docking_amount):
+                    score *= 2
 
                 new_line = line.Line(shape, True, score, 5)
             else:

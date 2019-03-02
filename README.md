@@ -6,7 +6,7 @@ Written in Python
 ### Prerequisites
 
 Lunar Lander is based on the python module "pymunk", which is a Physics Emulation Module.
-Also you have to install the "arcade" module.
+Also you have to install the "arcade" module which is responsible for the Drawing.
 
 ```
 pip install pymunk

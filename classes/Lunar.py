@@ -177,6 +177,8 @@ class Lunar():
                         return line.score
                     else:
                         self.game_over()
+                # elif ((pane_left_end_x >= start.x and pane_right_start_x > end.x and (pane_left_start_y <= start.y or pane_right_start_y <= start.y)) or (pane_right_start_x <= end.x and pane_left_end_x < start.x and (pane_left_start_y <= start.y or pane_right_start_y <= start.y))):
+                #     self.game_over()
                     
             
             if (arcade.geometry.are_polygons_intersecting(line_tuple, self.landing_pane_left)):
