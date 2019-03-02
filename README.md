@@ -1,7 +1,7 @@
 # Lunar Lander
 
-Lunar Lander by Tobi Heiss & Martin Islitzer
-Written in Python
+Lunar Lander Game by Tobi Heiss & Martin Islitzer.
+The Game is implemented in Python.
 
 ### Prerequisites
 
@@ -20,3 +20,9 @@ Run from root.
 ```
 python ./main.py
 ```
+
+### How to use
+
+The Game is easy to use and has a hand full of rules to consider.
+
+# test
