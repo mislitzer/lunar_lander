@@ -107,8 +107,14 @@ class LunarLander(arcade.Window):
                 color = arcade.color.LIGHT_GREEN
                 pos_y = start.y - font_size * 1.5
 
+                if line.bonus:
+                    arcade.draw_text("+" + str(line.bonus) + " fuel", start.x - ((start.x - end.x) / 10), start.y + font_size * 1.5, arcade.color.WHITE, font_size / 1.5)
+
                 if (pos_y < 1):
-                    arcade.draw_text("x" + str(line.score), start.x - ((start.x - end.x) / 2.6), start.y + font_size * 1.5, arcade.color.WHITE, font_size)
+                    if line.bonus:
+                        arcade.draw_text("x" + str(line.score), start.x - ((start.x - end.x) / 2.6), start.y + font_size * 2.8, arcade.color.WHITE, font_size)
+                    else:
+                        arcade.draw_text("x" + str(line.score), start.x - ((start.x - end.x) / 2.6), start.y + font_size * 1.5, arcade.color.WHITE, font_size)
                 else:
                     arcade.draw_text("x" + str(line.score), start.x - ((start.x - end.x) / 2.6), pos_y, arcade.color.WHITE, font_size)
 

@@ -174,11 +174,13 @@ class Lunar():
                     if (self.vertical_speed <= CONSTANTS.GAME_LUNAR_LANDING_TOLERANCE):
                         self.landed = True
                         self.delta_y = 0
+                        
+                        # increase by a fuel bonus
+                        self.fuel += line.bonus
+
                         return line.score
                     else:
                         self.game_over()
-                # elif ((pane_left_end_x >= start.x and pane_right_start_x > end.x and (pane_left_start_y <= start.y or pane_right_start_y <= start.y)) or (pane_right_start_x <= end.x and pane_left_end_x < start.x and (pane_left_start_y <= start.y or pane_right_start_y <= start.y))):
-                #     self.game_over()
                     
             
             if (arcade.geometry.are_polygons_intersecting(line_tuple, self.landing_pane_left)):

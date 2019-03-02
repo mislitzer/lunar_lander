@@ -80,11 +80,15 @@ class Level():
 
         # sort the places
         self.docking_lines.sort()
+        
+        # random selection of a bonus platform
+        bonus_rand = random.randint(0, len(self.docking_lines) - 1)
 
         # positions
         start_position_x = 0
         position_y_start = None
         position_y_end = None
+        docking_line_pointer = 0
 
         for p in range(points_amount):
             is_docking_line = False
@@ -115,7 +119,12 @@ class Level():
                 if (len(self.docking_lines) < docking_amount):
                     score *= 2
 
-                new_line = line.Line(shape, True, score, 5)
+                if docking_line_pointer == bonus_rand:
+                    new_line = line.Line(shape, True, score, score * CONSTANTS.GAME_LUNAR_BONUS_FACTOR, 5)
+                else:
+                    new_line = line.Line(shape, True, score, 0, 5)
+
+                docking_line_pointer += 1
             else:
                 new_line = line.Line(shape)
 
