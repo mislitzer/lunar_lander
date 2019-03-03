@@ -89,11 +89,17 @@ class LunarLander(arcade.Window):
     def set_lunar(self, width, height):
         return lunar.Lunar(randint(int(width * 0.1), int(width - width * 0.1)), height - height * 0.1)
 
+    def draw_background_scene(self):
+        for star in self.level.stars:
+            arcade.draw_circle_filled(star.x, star.y, star.radius, arcade.color.WHITE)
+
     def on_draw(self):
         arcade.start_render()
 
         # change delta by key passing events
         self.lunar.change_delta(self.key_control)
+
+        self.draw_background_scene()
         
         for line in self.level.lines:
             start = line.shape.a

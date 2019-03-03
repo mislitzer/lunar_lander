@@ -1,6 +1,7 @@
 import pymunk
 import random
 from classes import Line as line
+from classes import Star as star
 from config import Constants as CONSTANTS
 
 class Level():
@@ -12,6 +13,7 @@ class Level():
         self.__docking_lines = []
         self.__handicap = handicap
         self.__gravity = gravity
+        self.__stars = []
 
         # draw the level
         self.generate_level()
@@ -50,6 +52,10 @@ class Level():
     @property
     def lines(self):
         return self.__lines
+
+    @property
+    def stars(self):
+        return self.__stars
 
     @property
     def docking_lines(self):
@@ -131,3 +137,21 @@ class Level():
             self.lines.append(new_line)
 
             start_position_x += CONSTANTS.GAME_LINE_POINT_DISTRIBUTION
+
+        self.generate_background_stars()
+
+    def generate_background_stars(self):
+        amount_stars = CONSTANTS.GAME_BACKGROUND_STARS_AMOUNT
+        game_width = CONSTANTS.GAME_WIDTH
+        game_height = CONSTANTS.GAME_HEIGHT
+
+        for s in range(amount_stars):
+            rand_x = random.randint(1, game_width - 1)
+            rand_y = random.randint(1, game_height - 1)
+            rand_radius_multiplier = random.randint(1, 3)
+            radius = CONSTANTS.GAME_BACKGROUND_STARS_BASE_RADIUS * rand_radius_multiplier
+
+            generated_star = star.Star(rand_x, rand_y, radius)
+        
+            self.stars.append(generated_star)
+
