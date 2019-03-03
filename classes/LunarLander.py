@@ -210,7 +210,12 @@ class LunarLander(arcade.Window):
         arcade.draw_text(name, start_x, start_y, arcade.color.WHITE, font_size, 200, None, None, True)
         arcade.draw_text("LEVEL: " + str(int(self.level.handicap)), start_x, start_y - line * 2, arcade.color.WHITE, font_size, 200)
         arcade.draw_text("FUEL: " + str(int(self.lunar.fuel)), start_x, start_y - line * 3, arcade.color.WHITE, font_size, 200)
-        arcade.draw_text("VERTICAL SPEED: " + str(self.lunar.vertical_speed), start_x, start_y - line * 4, arcade.color.WHITE, font_size, 200)
+
+        if self.lunar.vertical_speed <= CONSTANTS.GAME_LUNAR_LANDING_TOLERANCE:
+            arcade.draw_text("VERTICAL SPEED: " + str(self.lunar.vertical_speed), start_x, start_y - line * 4, arcade.color.LIGHT_GREEN, font_size, 200)
+        else:
+            arcade.draw_text("VERTICAL SPEED: " + str(self.lunar.vertical_speed), start_x, start_y - line * 4, arcade.color.RED, font_size, 200)
+
         arcade.draw_text("HORIZONTAL SPEED: " + str(self.lunar.horizontal_speed), start_x, start_y - line * 5, arcade.color.WHITE, font_size, 300)
         arcade.draw_text("SCORE: " + str(self.player.score), start_x, start_y - line * 6, arcade.color.WHITE, font_size, 300)
 
